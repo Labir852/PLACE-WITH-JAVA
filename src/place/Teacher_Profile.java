@@ -5,18 +5,38 @@
  */
 package place;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author CSE LAB
  */
 public class Teacher_Profile extends javax.swing.JFrame {
+        static int id;
+    static String name;
+    static String description;
+    static String specialization;
+    
 
     /**
      * Creates new form Teacher_Profile
      */
-    public Teacher_Profile() {
+    public Teacher_Profile(int id, String name,String description,String specialization) {
         initComponents();
+        this.id=id;
+        this.name = name;
+        this.description = description;
+        this.specialization = specialization ;
+        
+        teacherName.setText(name);
+        teacherID.setText(String.valueOf(id));
+        specializationLabel.setText(specialization);
+        descriptionLabel.setText(description);
+        
     }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,17 +63,13 @@ public class Teacher_Profile extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        teacherName = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        teacherID = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TeacherSpecialization = new javax.swing.JTextArea();
-        TeacherSpecializationInsertionButton = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TeacherDescription = new javax.swing.JTextArea();
-        TeacherDescriptionInsertionButton = new javax.swing.JButton();
+        specializationLabel = new javax.swing.JLabel();
+        descriptionLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         PostingButton = new javax.swing.JButton();
         StudyMaterialsButton = new javax.swing.JButton();
@@ -188,37 +204,30 @@ public class Teacher_Profile extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("NAME");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel9.setText("RAHNUMA TASMIN");
+        teacherName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        teacherName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        teacherName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel12.setText("ID");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel13.setText("123456789");
+        teacherID.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        teacherID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        teacherID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel14.setText("SPECIALIZATION");
 
-        TeacherSpecialization.setColumns(20);
-        TeacherSpecialization.setRows(5);
-        jScrollPane1.setViewportView(TeacherSpecialization);
-
-        TeacherSpecializationInsertionButton.setText("INSERT");
-        TeacherSpecializationInsertionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TeacherSpecializationInsertionButtonActionPerformed(evt);
-            }
-        });
-
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setText("DESCRIPTION");
 
-        TeacherDescription.setColumns(20);
-        TeacherDescription.setRows(5);
-        jScrollPane2.setViewportView(TeacherDescription);
+        specializationLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        specializationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        specializationLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153)));
 
-        TeacherDescriptionInsertionButton.setText("INSERT");
+        descriptionLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descriptionLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -236,27 +245,22 @@ public class Teacher_Profile extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(jLabel13))
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel15))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel9)))
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel14))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TeacherSpecializationInsertionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(descriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                            .addComponent(specializationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TeacherDescriptionInsertionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jLabel15)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGap(121, 121, 121)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(teacherName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(teacherID, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,29 +269,21 @@ public class Teacher_Profile extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(jLabel8)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel9)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(teacherName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
+                .addComponent(teacherID, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(TeacherSpecializationInsertionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(TeacherDescriptionInsertionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)))
-                .addGap(42, 42, 42))
+                .addComponent(specializationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -367,23 +363,16 @@ public class Teacher_Profile extends javax.swing.JFrame {
 
     private void PostingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PostingButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         Feed object = new Feed();
         object.setVisible(true);
+        
     }//GEN-LAST:event_PostingButtonActionPerformed
 
     private void StudyMaterialsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudyMaterialsButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         Study_Materials object = new Study_Materials();
         object.setVisible(true);
     }//GEN-LAST:event_StudyMaterialsButtonActionPerformed
-
-    private void TeacherSpecializationInsertionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherSpecializationInsertionButtonActionPerformed
-        // TODO add your handling code here:
-     String Des =TeacherSpecialization.getText();
-     
-    }//GEN-LAST:event_TeacherSpecializationInsertionButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,7 +404,7 @@ public class Teacher_Profile extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Teacher_Profile().setVisible(true);
+                new Teacher_Profile(id,name,description,specialization).setVisible(true);
             }
         });
     }
@@ -423,16 +412,12 @@ public class Teacher_Profile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PostingButton;
     private javax.swing.JButton StudyMaterialsButton;
-    private javax.swing.JTextArea TeacherDescription;
-    private javax.swing.JButton TeacherDescriptionInsertionButton;
-    private javax.swing.JTextArea TeacherSpecialization;
-    private javax.swing.JButton TeacherSpecializationInsertionButton;
+    private javax.swing.JLabel descriptionLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -442,14 +427,14 @@ public class Teacher_Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel specializationLabel;
+    private javax.swing.JLabel teacherID;
+    private javax.swing.JLabel teacherName;
     // End of variables declaration//GEN-END:variables
 }

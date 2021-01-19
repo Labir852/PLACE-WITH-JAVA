@@ -18,24 +18,22 @@ import javax.swing.JOptionPane;
  * @author tanvi
  */
 public class DatabaseConnection {
-    
-     Connection con;         //create the connection object con
- PreparedStatement pst; // create the PreparedStatement object pst
- ResultSet rs;          // create the ResultSet object rs
- Statement stmt;
-    
-    public static Connection ConnectDb(){
-        
-        try{
+
+    Connection con;         //create the connection object con
+    PreparedStatement pst; // create the PreparedStatement object pst
+    ResultSet rs;          // create the ResultSet object rs
+    Statement stmt;
+
+    public static Connection ConnectDb() {
+
+        try {
             Class.forName("oracle.jdbc.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","labir");
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "PAU", "labir");
             return con;
-        }
-        catch(ClassNotFoundException | SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,e);
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
         return null;
     }
-    
+
 }

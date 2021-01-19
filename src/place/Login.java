@@ -5,17 +5,28 @@
  */
 package place;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CSE LAB
  */
 public class Login extends javax.swing.JFrame {
+    
+        Connection con;         //create the connection object con
+    PreparedStatement pst;
 
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        con = DatabaseConnection.ConnectDb();
     }
 
     /**
@@ -35,11 +46,11 @@ public class Login extends javax.swing.JFrame {
         TeacherRadioButtonL = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        IDTextField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        NameTextField = new javax.swing.JTextField();
         RegistrationPageButton = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        IDTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,20 +121,11 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("ID");
+        jLabel4.setText("FULL NAME");
 
-        IDTextField.addActionListener(new java.awt.event.ActionListener() {
+        NameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDTextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("PASSWORD");
-
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                NameTextFieldActionPerformed(evt);
             }
         });
 
@@ -144,6 +146,15 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setText("ID");
+
+        IDTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -151,39 +162,40 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jLabel6))
+                        .addGap(50, 50, 50)
+                        .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(RegistrationPageButton, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                            .addComponent(LoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(RegistrationPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(179, 179, 179)
                 .addComponent(jLabel4)
-                .addGap(35, 35, 35)
+                .addGap(42, 42, 42)
+                .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel5)
+                .addGap(44, 44, 44)
                 .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jLabel6)
-                .addGap(51, 51, 51)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
                 .addComponent(RegistrationPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
+                .addGap(155, 155, 155))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -198,27 +210,30 @@ public class Login extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 986, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 743, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
+    private void NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IDTextFieldActionPerformed
+    }//GEN-LAST:event_NameTextFieldActionPerformed
 
     private void AdminRadioButtonLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminRadioButtonLActionPerformed
         // TODO add your handling code here:
@@ -227,10 +242,6 @@ public class Login extends javax.swing.JFrame {
             StudentRadioButtonL.setSelected(false);
         }
     }//GEN-LAST:event_AdminRadioButtonLActionPerformed
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void RegistrationPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrationPageButtonActionPerformed
         // TODO add your handling code here:
@@ -257,9 +268,43 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
-        
+       int id = Integer.parseInt(IDTextField.getText());
         String setSelection = null;
+        if(StudentRadioButtonL.isSelected()){
+           try {
+               pst = con.prepareStatement("select ID from STUDENTS where STUDENTS.ID = id");
+               pst.executeQuery();
+               JOptionPane.showMessageDialog(null,"logged in");
+           } catch (SQLException ex) {
+               Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               JOptionPane.showMessageDialog(null,ex);
+           }
+        }
+        else if(TeacherRadioButtonL.isSelected()){
+           try {
+               pst = con.prepareStatement("select ID from TEACHERS where TEACHERS.ID = id");
+               pst.executeQuery();
+               JOptionPane.showMessageDialog(null,"logged in");
+           } catch (SQLException ex) {
+               Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               JOptionPane.showMessageDialog(null,ex);
+           }
+        }
+        if(AdminRadioButtonL.isSelected()){
+           try {
+               pst = con.prepareStatement("select ID from ADMIN where ADMIN.ID = id");
+               pst.executeQuery();
+               JOptionPane.showMessageDialog(null,"logged in");
+           } catch (SQLException ex) {
+               Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               JOptionPane.showMessageDialog(null,ex);
+           }
+        }
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,15 +345,15 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JRadioButton AdminRadioButtonL;
     private javax.swing.JTextField IDTextField;
     private javax.swing.JButton LoginButton;
+    private javax.swing.JTextField NameTextField;
     private javax.swing.JButton RegistrationPageButton;
     private javax.swing.JRadioButton StudentRadioButtonL;
     private javax.swing.JRadioButton TeacherRadioButtonL;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,28 +21,32 @@ import javax.swing.JOptionPane;
  *
  * @author tanvi
  */
-public class Registration extends javax.swing.JFrame  {
- Connection con;         //create the connection object con
- PreparedStatement pst; // create the PreparedStatement object pst
- ResultSet rs;          // create the ResultSet object rs
- Statement stmt;
+public class Registration extends javax.swing.JFrame {
 
+    Connection con;         //create the connection object con
+    PreparedStatement pst; // create the PreparedStatement object pst
+    ResultSet rs;          // create the ResultSet object rs
+    Statement stmt;
 
     /**
      * Creates new form Registration
+     *
      * @throws java.sql.SQLException
      */
     public Registration() {
 
         initComponents();
         con = DatabaseConnection.ConnectDb();
-     try {
-         this.stmt =  con.createStatement();
-     } catch (SQLException ex) {
-         Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
-     }
+        try {
+            this.stmt = con.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (!StudentRadioButtonR.isSelected() || !TeacherRadioButtonR.isSelected()) {
+            specializationLabel.setVisible(false);
+            specializationField.setVisible(false);
+        }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,6 +62,7 @@ public class Registration extends javax.swing.JFrame  {
         jLabel1 = new javax.swing.JLabel();
         TeacherRadioButtonR = new javax.swing.JRadioButton();
         StudentRadioButtonR = new javax.swing.JRadioButton();
+        AdminRadioButtonR = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         NameField = new javax.swing.JTextField();
@@ -65,6 +70,10 @@ public class Registration extends javax.swing.JFrame  {
         IDField = new javax.swing.JTextField();
         RegisterButton = new javax.swing.JButton();
         LoginPageButton = new javax.swing.JButton();
+        descriptionLabel = new javax.swing.JLabel();
+        descriptionField = new javax.swing.JTextField();
+        specializationLabel = new javax.swing.JLabel();
+        specializationField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +100,14 @@ public class Registration extends javax.swing.JFrame  {
             }
         });
 
+        AdminRadioButtonR.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AdminRadioButtonR.setText("ADMIN");
+        AdminRadioButtonR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminRadioButtonRActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -98,24 +115,27 @@ public class Registration extends javax.swing.JFrame  {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
+                        .addGap(100, 100, 100)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
+                        .addGap(193, 193, 193)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(StudentRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TeacherRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(143, Short.MAX_VALUE))
+                            .addComponent(TeacherRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AdminRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121)
+                .addGap(90, 90, 90)
                 .addComponent(TeacherRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addGap(117, 117, 117)
                 .addComponent(StudentRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118)
+                .addComponent(AdminRadioButtonR, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -154,49 +174,68 @@ public class Registration extends javax.swing.JFrame  {
             }
         });
 
+        descriptionLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        descriptionLabel.setText("DESCRIPTION");
+
+        specializationLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        specializationLabel.setText("SPECIALIZATION");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(RegisterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LoginPageButton, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(descriptionLabel))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(specializationLabel))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(specializationField, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(descriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LoginPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(266, 266, 266)
+                .addGap(46, 46, 46)
+                .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(descriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(specializationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(specializationField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(42, 42, 42)
                 .addComponent(LoginPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -205,8 +244,9 @@ public class Registration extends javax.swing.JFrame  {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,15 +270,25 @@ public class Registration extends javax.swing.JFrame  {
 
     private void TeacherRadioButtonRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherRadioButtonRActionPerformed
         // TODO add your handling code here:
-        if(TeacherRadioButtonR.isSelected()){
+        if (TeacherRadioButtonR.isSelected()) {
             StudentRadioButtonR.setSelected(false);
+            AdminRadioButtonR.setSelected(false);
+            specializationLabel.setVisible(true);
+            specializationField.setVisible(true);
+            descriptionLabel.setVisible(true);
+            descriptionField.setVisible(true);
         }
     }//GEN-LAST:event_TeacherRadioButtonRActionPerformed
 
     private void StudentRadioButtonRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentRadioButtonRActionPerformed
         // TODO add your handling code here:
-        if(StudentRadioButtonR.isSelected()){
+        if (StudentRadioButtonR.isSelected()) {
             TeacherRadioButtonR.setSelected(false);
+            AdminRadioButtonR.setSelected(false);
+            specializationLabel.setVisible(false);
+            specializationField.setVisible(false);
+            descriptionLabel.setVisible(true);
+            descriptionField.setVisible(true);
         }
     }//GEN-LAST:event_StudentRadioButtonRActionPerformed
 
@@ -250,94 +300,111 @@ public class Registration extends javax.swing.JFrame  {
     }//GEN-LAST:event_LoginPageButtonActionPerformed
 
     
+
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         // TODO add your handling code here:
         int id = Integer.parseInt(IDField.getText());
         String name = NameField.getText();
-        if(StudentRadioButtonR.isSelected())
-        {
-                try {
+        String description = descriptionField.getText();
+        String specialization = specializationField.getText();
+        if (StudentRadioButtonR.isSelected()) {
+            try {
                 pst = con.prepareStatement("insert into STUDENTS(ID,NAME,DESCRIPTION) values(?,?,?)");
                 pst.setInt(1, id);
                 pst.setString(2, name);
-                pst.setString(3, "");                
-               pst.execute();
+                pst.setString(3, description);
+                pst.execute();
                 JOptionPane.showMessageDialog(null, "Record Addedddd!!!!!");
                 con.close();
 
                 NameField.setText("");
                 IDField.setText("");
-                //PasswordField.setText("");
-                   }
+                descriptionField.setText("");
 
-                catch (HeadlessException | SQLException e) 
-                       {
-                           System.out.print(e);
-                }
                 dispose();
-       Student_Profile ob = new Student_Profile();
-        ob.setVisible(true);
-        }
-        else if(TeacherRadioButtonR.isSelected())
-        {
-            try {
-                pst = con.prepareStatement("insert into TEACHERS(ID,NAME,DESCRIPTION,SPECIALIZATION) values(?,?,?)");
+                Student_Profile ob = new Student_Profile(id,name,description);
+                ob.setVisible(true);
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e.toString());
+
+            }
+
+        } else if (TeacherRadioButtonR.isSelected()) {
+             try {
+                pst = con.prepareStatement("insert into TEACHERS(ID,NAME,DESCRIPTION,SPECIALAIZATION) values(?,?,?,?)");
                 pst.setInt(1, id);
                 pst.setString(2, name);
-                pst.setString(3, "");
-                pst.setString(4, "");                
-               pst.execute();
+                pst.setString(3, description);
+                pst.setString(4, specialization);
+                pst.execute();
                 JOptionPane.showMessageDialog(null, "Record Addedddd!!!!!");
                 con.close();
 
                 NameField.setText("");
                 IDField.setText("");
-                   }
+                 descriptionField.setText("");
+                specializationField.setText("");
 
-                catch (SQLException e1) 
-                       {
-                }
-            dispose();
-        Teacher_Profile ob = new Teacher_Profile();
-        ob.setVisible(true);
+                dispose();
+                Teacher_Profile ob = new Teacher_Profile(id,name,description,specialization);
+                ob.setVisible(true);
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e.toString());
+
+            }
+
+        } else if (!StudentRadioButtonR.isSelected() && !TeacherRadioButtonR.isSelected() && !AdminRadioButtonR.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Please Select Student or Teacher or ADMIN");
+            specializationLabel.setVisible(false);
+            specializationField.setVisible(false);
+            descriptionLabel.setVisible(false);
+            descriptionField.setVisible(false);
         }
-        else if(!StudentRadioButtonR.isSelected() || !TeacherRadioButtonR.isSelected()){
-            JOptionPane.showMessageDialog(null, "Please Select Student or Teacher");
+        else if(AdminRadioButtonR.isSelected()){
+            try {
+                pst = con.prepareStatement("insert into ADMIN(ID,NAME) values(?,?)");
+                pst.setInt(1, id);
+                pst.setString(2, name);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Record Addedddd!!!!!");
+                con.close();
+
+                NameField.setText("");
+                IDField.setText("");
+
+                dispose();
+                Admin_Panel ob = new Admin_Panel();
+                ob.setVisible(true);
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e.toString());
+
+            }
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
-//    
-//    
-//    public void insert(String f2,String f3 ){
-//           
-//     rs = null;
-//    try {
-//        String query = "insert into STUDENTS(NAME,DESCRIPTION)" +
-//                "values ( '" + f2 + "' , '" + f3 + "'  ) ";
-//        pst = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-//        pst.execute(query);
-//        JOptionPane.showMessageDialog(null, "Record Added!!!");
-//
-//    } catch (SQLException sqle) {
-//        sqle.printStackTrace();
-//    }
-//           
-//                   
-//    }
-    
- 
-    
+
     private void NameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameFieldActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_NameFieldActionPerformed
 
     private void IDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IDFieldActionPerformed
+
+    private void AdminRadioButtonRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminRadioButtonRActionPerformed
+        // TODO add your handling code here:
+        if (AdminRadioButtonR.isSelected()) {
+            TeacherRadioButtonR.setSelected(false);
+            StudentRadioButtonR.setSelected(false);
+            specializationLabel.setVisible(false);
+            specializationField.setVisible(false);
+            descriptionLabel.setVisible(false);
+            descriptionField.setVisible(false);
+        }
+    }//GEN-LAST:event_AdminRadioButtonRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,18 +442,23 @@ public class Registration extends javax.swing.JFrame  {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton AdminRadioButtonR;
     private javax.swing.JTextField IDField;
     private javax.swing.JButton LoginPageButton;
     private javax.swing.JTextField NameField;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JRadioButton StudentRadioButtonR;
     private javax.swing.JRadioButton TeacherRadioButtonR;
+    private javax.swing.JTextField descriptionField;
+    private javax.swing.JLabel descriptionLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField specializationField;
+    private javax.swing.JLabel specializationLabel;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -5,17 +5,23 @@
  */
 package place;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author CSE LAB
  */
 public class Admin_Panel extends javax.swing.JFrame {
+        Connection con;         //create the connection object con
+    PreparedStatement pst;
 
     /**
      * Creates new form Admin_Panel
      */
     public Admin_Panel() {
         initComponents();
+        con = DatabaseConnection.ConnectDb();
     }
 
     /**
@@ -119,9 +125,9 @@ public class Admin_Panel extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(21, 21, 21)
                 .addComponent(TeacherMonitorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(48, 48, 48)
                 .addComponent(PostMonitorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(StudentMonitorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)

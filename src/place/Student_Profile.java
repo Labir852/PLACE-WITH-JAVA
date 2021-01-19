@@ -11,11 +11,22 @@ package place;
  */
 public class Student_Profile extends javax.swing.JFrame {
 
+    static int id;
+    static String name;
+    static String description;
     /**
      * Creates new form Student_Profile
      */
-    public Student_Profile() {
+    public Student_Profile(int id,String name,String description) {
         initComponents();
+        this.id=id;
+        this.name = name;
+        this.description= description;
+        
+        studentName.setText(name);
+        studentId.setText(String.valueOf(id));
+        studentDescription.setText(description);
+        
     }
 
     /**
@@ -32,12 +43,11 @@ public class Student_Profile extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        studentId = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        studentName = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        StudentDescription = new javax.swing.JTextField();
-        StudentDescriptionInsertionButton = new javax.swing.JButton();
+        studentDescription = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         PostingButton = new javax.swing.JButton();
         StudyMaterialsButton = new javax.swing.JButton();
@@ -56,30 +66,15 @@ public class Student_Profile extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("NAME");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("191039042");
+        studentId.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("ID");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setText("TANVIR ANJUM LABIR");
+        studentName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("DESCRIPTION");
-
-        StudentDescription.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StudentDescriptionActionPerformed(evt);
-            }
-        });
-
-        StudentDescriptionInsertionButton.setText("INSERT");
-        StudentDescriptionInsertionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StudentDescriptionInsertionButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,25 +87,24 @@ public class Student_Profile extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel7))
+                        .addGap(68, 68, 68)
+                        .addComponent(studentDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(StudentDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(StudentDescriptionInsertionButton)))
+                        .addGap(170, 170, 170)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(studentId, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(studentName, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -121,18 +115,16 @@ public class Student_Profile extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(studentName, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(studentId, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(StudentDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(StudentDescriptionInsertionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addComponent(studentDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -205,32 +197,17 @@ public class Student_Profile extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void StudentDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentDescriptionActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_StudentDescriptionActionPerformed
-
     private void PostingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PostingButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         Feed object = new Feed();
         object.setVisible(true);
     }//GEN-LAST:event_PostingButtonActionPerformed
 
     private void StudyMaterialsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudyMaterialsButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         Study_Materials object = new Study_Materials();
         object.setVisible(true);
     }//GEN-LAST:event_StudyMaterialsButtonActionPerformed
-
-    private void StudentDescriptionInsertionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentDescriptionInsertionButtonActionPerformed
-        // TODO add your handling code here:
-        String description = StudentDescription.getText();
-        StudentDescription.setText(description);
-        
-        
-    }//GEN-LAST:event_StudentDescriptionInsertionButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,25 +239,24 @@ public class Student_Profile extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Student_Profile().setVisible(true);
+                new Student_Profile(id,name,description).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PostingButton;
-    private javax.swing.JTextField StudentDescription;
-    private javax.swing.JButton StudentDescriptionInsertionButton;
     private javax.swing.JButton StudyMaterialsButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel studentDescription;
+    private javax.swing.JLabel studentId;
+    private javax.swing.JLabel studentName;
     // End of variables declaration//GEN-END:variables
 }

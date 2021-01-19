@@ -5,17 +5,23 @@
  */
 package place;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author CSE LAB
  */
 public class Study_Materials extends javax.swing.JFrame {
 
+        Connection con;         //create the connection object con
+    PreparedStatement pst;
     /**
      * Creates new form Study_Materials
      */
     public Study_Materials() {
         initComponents();
+        con = DatabaseConnection.ConnectDb();
     }
 
     /**
@@ -46,7 +52,6 @@ public class Study_Materials extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TopicComboBox = new javax.swing.JComboBox<>();
         OpenTopicButton = new javax.swing.JButton();
-        ProfileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +64,11 @@ public class Study_Materials extends javax.swing.JFrame {
 
         FileChooserButtton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         FileChooserButtton.setText("FILECHOOSER");
+        FileChooserButtton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FileChooserButttonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("SUBJECT");
@@ -143,14 +153,6 @@ public class Study_Materials extends javax.swing.JFrame {
         OpenTopicButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         OpenTopicButton.setText("ENTER");
 
-        ProfileButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        ProfileButton.setText("Profile");
-        ProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProfileButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -164,29 +166,26 @@ public class Study_Materials extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SubjectComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TopicComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(OpenTopicButton, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                    .addComponent(ProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(OpenTopicButton, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel3)
-                .addGap(32, 32, 32)
+                .addGap(42, 42, 42)
                 .addComponent(FiletypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jLabel2)
-                .addGap(31, 31, 31)
-                .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jLabel4)
                 .addGap(36, 36, 36)
+                .addComponent(jLabel2)
+                .addGap(47, 47, 47)
+                .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel4)
+                .addGap(54, 54, 54)
                 .addComponent(TopicComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(103, 103, 103)
                 .addComponent(OpenTopicButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(ProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -226,9 +225,9 @@ public class Study_Materials extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UploadButtonActionPerformed
 
-    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
+    private void FileChooserButttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FileChooserButttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ProfileButtonActionPerformed
+    }//GEN-LAST:event_FileChooserButttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,7 +268,6 @@ public class Study_Materials extends javax.swing.JFrame {
     private javax.swing.JButton FileChooserButtton;
     private javax.swing.JComboBox<String> FiletypeComboBox;
     private javax.swing.JButton OpenTopicButton;
-    private javax.swing.JButton ProfileButton;
     private javax.swing.JComboBox<String> SubjectComboBox;
     private javax.swing.JTextField SubjectUploadTextField;
     private javax.swing.JComboBox<String> TopicComboBox;

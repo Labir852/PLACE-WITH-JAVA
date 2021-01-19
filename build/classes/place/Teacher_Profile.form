@@ -282,34 +282,29 @@
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="descriptionLabel" pref="456" max="32767" attributes="0"/>
+                                  <Component id="specializationLabel" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="444" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TeacherSpecializationInsertionButton" min="-2" pref="85" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="444" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TeacherDescriptionInsertionButton" min="-2" pref="85" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
-                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="teacherName" max="32767" attributes="0"/>
+                                  <Component id="teacherID" pref="342" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <EmptySpace pref="94" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -320,33 +315,21 @@
                       <Component id="jLabel6" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="teacherName" min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="teacherID" min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="descriptionLabel" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="TeacherSpecializationInsertionButton" min="-2" pref="52" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="TeacherDescriptionInsertionButton" min="-2" pref="52" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="specializationLabel" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace pref="65" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -368,12 +351,17 @@
                 <Property name="text" type="java.lang.String" value="NAME"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="teacherName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RAHNUMA TASMIN"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
@@ -384,12 +372,17 @@
                 <Property name="text" type="java.lang.String" value="ID"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="teacherID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="123456789"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
@@ -400,29 +393,6 @@
                 <Property name="text" type="java.lang.String" value="SPECIALIZATION"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="TeacherSpecialization">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="TeacherSpecializationInsertionButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="INSERT"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TeacherSpecializationInsertionButtonActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -431,24 +401,32 @@
                 <Property name="text" type="java.lang.String" value="DESCRIPTION"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="TeacherDescription">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="TeacherDescriptionInsertionButton">
+            <Component class="javax.swing.JLabel" name="specializationLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="INSERT"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                    <BevelBorder>
+                      <Color PropertyName="shadowOuter" blue="99" green="99" red="99" type="rgb"/>
+                    </BevelBorder>
+                  </Border>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="descriptionLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
